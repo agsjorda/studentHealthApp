@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">crud-app</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login">Login</string>
+    <string name="logout">logout</string>
+</resources>
