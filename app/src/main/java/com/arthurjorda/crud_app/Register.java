@@ -69,13 +69,13 @@ public class Register extends AppCompatActivity {
 
                 //check if email or password inputs are empty
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Register.this, "Enter email", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.VISIBLE);
+                    Toast.makeText(Register.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Register.this, "Enter password", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.VISIBLE);
+                    Toast.makeText(Register.this, "password cannot be empty", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
 

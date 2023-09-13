@@ -66,11 +66,13 @@ public class Login extends AppCompatActivity {
 
                 //check if email or password inputs are empty
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Login.this, "Enter email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Login.this, "Enter password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "password cannot be empty", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
 
