@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -78,10 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(new Intent(MainActivity.this, EditUserActivity.class));
                             }
 
-                            @Override
-                            public void onClick(com.google.firebase.firestore.auth.User user) {
 
-                            }
                         });
                     }
                 }
@@ -101,10 +99,14 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 ArrayList<User> arrayList = new ArrayList<>();
+
+
                                 for (QueryDocumentSnapshot doc : task.getResult()) {
                                     User user = doc.toObject(User.class);
+                                    Log.i("onComplete", "userdetails: " + user.firstName);
                                     user.setId(doc.getId());
                                     arrayList.add(user);
+
                                 }
                                 UserAdapter adapter = new UserAdapter(MainActivity.this, arrayList);
                                 recyclerView.setAdapter(adapter);
@@ -113,11 +115,6 @@ public class MainActivity extends AppCompatActivity {
                                     public void onClick(User user) {
                                         App.user = user;
                                         startActivity(new Intent(MainActivity.this, EditUserActivity.class));
-                                    }
-
-                                    @Override
-                                    public void onClick(com.google.firebase.firestore.auth.User user) {
-
                                     }
                                 });
                             }
